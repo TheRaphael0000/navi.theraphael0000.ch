@@ -1,0 +1,14 @@
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    restart: unless-stopped
+    networks:
+      - nginx
+    volumes:
+      - "./data:/data"
+      - "/mnt/samba/audio/flac:/music:ro"
+
+networks:
+  nginx:
+    external: true
+    name: nginx
