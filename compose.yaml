@@ -1,5 +1,6 @@
 services:
   navidrome:
+    env_file: ".env"
     image: deluan/navidrome:latest
     restart: unless-stopped
     networks:
