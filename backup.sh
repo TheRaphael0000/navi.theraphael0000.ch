@@ -1,5 +1,5 @@
 #!/bin/zsh
-cd /opt/navi.theraphael0000.ch
+cd -- "$(dirname -- "$0")"
 docker compose stop
-zip -r /mnt/samba/backups/navi.theraphael0000.ch/$(date +"%Y%m%d")_navi.theraphael0000.ch.zip data
+borg create $BORG_REPO::{now} data
 docker compose start
